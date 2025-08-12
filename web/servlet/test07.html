@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <h2>주문</h2>
+
+        <form method="get" action="/servlet/test07">
+            <div>주소</div>
+            <input type="text" name="address" class="form-control col-6">
+            <br>
+            <div>결제카드</div>
+            <input type="text" name="card" class="form-control col-6">
+            <br>
+            <div>가격</div>
+            <input type="text" name="stringPrice" class="form-control col-6">
+            <br>
+            <button type="submit" class="btn btn-primary mt-3">주문</button >
+        </form>
+    </div>
+</body>
+</html>
