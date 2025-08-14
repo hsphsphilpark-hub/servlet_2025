@@ -84,7 +84,35 @@
 <%--실습 과제(손에 익히기)--%>
 <%--평균 서식: 평균을 소수점 0자리/1자리/2자리로 각각 출력해보기.--%>
 
+<%int[] scores2 = {80, 90, 100, 95, 80};%>
+<%double avg2=0;
+    for(int i = 0; i < scores.length; i++){
+        avg2 += scores[i];
+    }
+    avg2 /= scores.length;
+%>
+<h2>점수 평균은 <%= String.format("%.0f", avg) %>점 입니다.</h2>
+<h2>점수 평균은 <%= String.format("%.1f", avg) %>점 입니다.</h2>
+<h2>점수 평균은 <%= String.format("%.2f", avg) %>점 입니다.</h2>
+
 <%--채점 확장: "O"=10점, "△"=5점, "X"=0점 규칙으로 바꾸고 점수 계산 함수로 분리.--%>
+<%!
+    public int scoreCaculate(List<String> scoreList){
+        int score = 0;
+        for(String answer : scoreList){
+            if("O".equals(answer)){
+                score += 10;
+            } else if ("△".equals(answer)) {
+                score += 5;
+            }
+        }
+        return score;
+    }
+%>
+
+<%List<String> scoreList2 = Arrays.asList(new String[]{"X", "O", "△", "O", "X", "△", "O", "△", "X", "O"});%>
+
+<h2>채점 결과는 <%=scoreCaculate(scoreList2)%>점 입니다.</h2>
 
 <%--합 함수 변형: 홀수만/짝수만의 합, 배열 범위 합(예: arr[l..r])으로 일반화.--%>
 
