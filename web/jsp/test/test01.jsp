@@ -115,11 +115,32 @@
 <h2>채점 결과는 <%=scoreCaculate(scoreList2)%>점 입니다.</h2>
 
 <%--합 함수 변형: 홀수만/짝수만의 합, 배열 범위 합(예: arr[l..r])으로 일반화.--%>
+<%!
+    public long sumOdd(int inputNum){
+        long sum = 0;
+        for(int i = 1; i <= inputNum; i+=2){
+            sum += i;
+        }
+        return sum;
+    }
+    public long sumEven(int inputNum){
+        long sum = 0;
+        for(int i = 0; i <= inputNum; i+=2){
+            sum += i;
+        }
+        return sum;
+    }
 
+    public long sumAll(int inputNum){
+        long sum = 0;
+        sum += (inputNum+(inputNum+1)/2);
+        return sum;
+    }
+%>
 <%--나이 엣지 케이스: 2월 29일 생일 입력 시 올해가 평년/윤년일 때 결과 비교.--%>
 
 <%--JSP 베스트프랙티스: 같은 로직을 서블릿에서 계산 → JSP는 EL로 출력하는 방식으로 분리해보기.--%>
-
+<!-- 이건 아직 안배워서 패스>
 
 </body>
 </html>

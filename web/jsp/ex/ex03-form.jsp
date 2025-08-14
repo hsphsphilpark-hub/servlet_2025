@@ -26,6 +26,10 @@
             <option value="딸기">딸기</option>
             <option value="복숭아">복숭아</option>
         </select>
+        <h4> 좋아 하는 음식을 모두 고르세요</h4>
+        <label>민트초코<input type="checkbox" name="food" value="민트초코"></label>
+        <label>히와이안 피자<input type="checkbox" name="food" value="하와이안 피자"></label>
+        <label>번데기<input type="checkbox" name="food" value="번데기"></label>
         <button type="submit" >입력</button>
     </form>
 </body>

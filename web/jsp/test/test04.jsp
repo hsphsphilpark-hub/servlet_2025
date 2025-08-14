@@ -15,6 +15,8 @@
 <body>
 
     <%!
+        // 나눗셈의 경우 0들어오는거 방지 하기
+
         public double caculate(double numA, double numB, String calType){
             if("+".equals(calType)){
                 return numA + numB;
@@ -44,6 +46,9 @@
         }
     %>
     <%
+        // 1) POST 인코딩: 파라미터 읽기 전에!
+        request.setCharacterEncoding("UTF-8");
+
         double numA = Double.parseDouble(request.getParameter("numA"));
         double numB = Double.parseDouble(request.getParameter("numB"));
         String calType = request.getParameter("calType");

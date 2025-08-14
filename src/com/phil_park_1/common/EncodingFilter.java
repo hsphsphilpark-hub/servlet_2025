@@ -28,36 +28,37 @@
 ////}
 //
 //
-//package com.phil_park_1.common;
-//
-//import jakarta.servlet.*;
-//import jakarta.servlet.annotation.WebFilter;
-//import java.io.IOException;
-//
-//@WebFilter(
-//        filterName = "EncodingFilter",
-//        urlPatterns = {"/*"},
-//        dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}
-//)
-//public class EncodingFilter implements Filter {
-//
-//    @Override
-//    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-//            throws IOException, ServletException {
-//
-//        // (1) 인코딩 지정 — 파라미터 꺼내기 전에!
-//        request.setCharacterEncoding("UTF-8");   // POST 바디에 적용
-//        response.setCharacterEncoding("UTF-8");  // 응답 인코딩
-//
-//        // (2) 응답 콘텐츠 타입에 charset까지 같이(없을 때만) 지정하는 습관
-//        if (response.getContentType() == null) {
-//            response.setContentType("text/html; charset=UTF-8");
-//        }
-//
-//        // (3) 다음 필터/서블릿으로 넘김
-//        chain.doFilter(request, response);
-//    }
-//
-//    @Override public void init(FilterConfig filterConfig) {}
-//    @Override public void destroy() {}
-//}
+package com.phil_park_1.common;
+
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
+import java.io.IOException;
+
+@WebFilter(
+        filterName = "EncodingFilter",
+        urlPatterns = {"/*"},
+        dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}
+)
+public class EncodingFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+
+        // (1) 인코딩 지정 — 파라미터 꺼내기 전에!
+        request.setCharacterEncoding("UTF-8");   // POST 바디에 적용
+        response.setCharacterEncoding("UTF-8");  // 응답 인코딩
+
+        // (2) 응답 콘텐츠 타입에 charset까지 같이(없을 때만) 지정하는 습관
+        if (response.getContentType() == null) {
+            response.setContentType("text/html; charset=UTF-8");
+        }
+
+        // (3) 다음 필터/서블릿으로 넘김
+        chain.doFilter(request, response);
+    }
+
+    @Override public void init(FilterConfig filterConfig) {}
+    @Override public void destroy() {}
+}
+
