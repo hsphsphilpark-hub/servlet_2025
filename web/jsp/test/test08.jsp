@@ -62,17 +62,36 @@
         };
         list.add(map);
     %>
-
-    <%
-        String idInput = request.getParameter("idInput");
+    <%!
+        public static Map<String, Object> findBookById(List<Map<String, Object>> bookList, int targetId) {
+            for (Map<String, Object> book : bookList) {
+                if (book.get("id").equals(targetId)) {
+                    return book;
+                }
+            }
+            return null;
+        }
     %>
 
-    <div class="container">
-        <div>
+    <%
+        int inputId = Integer.parseInt(request.getParameter("inputId"));
+        Map<String, Object> bookSelected = findBookById(list,inputId);
+    %>
 
+    <div class="container d-flex">
+        <div id="image">
+            <img src="<%= bookSelected.get("image")%>">
         </div>
-        <div>
-
+        <div id="information">
+            <div>
+                <%= bookSelected.get("title")%>
+            </div>
+            <div>
+                <%= bookSelected.get("author")%>
+            </div>
+            <div>
+                <%= bookSelected.get("publisher")%>
+            </div>
         </div>
     </div>
 </body>
