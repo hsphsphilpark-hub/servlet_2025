@@ -80,17 +80,17 @@
 
     <div class="container d-flex">
         <div id="image">
-            <img src="<%= bookSelected.get("image")%>">
+            <img src="<%= bookSelected.get("image")%>" width="270" height="360">
         </div>
         <div id="information">
             <div>
-                <%= bookSelected.get("title")%>
+                <h1><%= bookSelected.get("title")%></h1>
             </div>
             <div>
-                <%= bookSelected.get("author")%>
+                <h2 class="text-primary"><%= bookSelected.get("author")%></h2>
             </div>
             <div>
-                <%= bookSelected.get("publisher")%>
+                <h3><%= bookSelected.get("publisher")%></h3>
             </div>
         </div>
     </div>

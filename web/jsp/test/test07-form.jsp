@@ -18,12 +18,12 @@
             <h2>메뉴검색</h2>
         </div>
         <form method="post" action="/web/jsp/test/test07.jsp">
-            <div class="d-flex">
-                <input type="text" class="form-control" name="menuInput">
+            <div class="d-flex align-items-end">
+                <input type="text" class="form-control col-5 mr-2" name="menuInput">
                 <label>4점 이하 제외<input type="checkbox" name="pointFlag" value="1"></label>
             </div>
             <div>
-                <button type="submit" class="btn btn-success">검색</button>
+                <button type="submit" class="btn btn-success mt-2">검색</button>
             </div>
         </form>
     </div>

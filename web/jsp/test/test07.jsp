@@ -33,32 +33,33 @@
     String pointFlag = request.getParameter("pointFlag");
 %>
 <div class="container">
-    <div><h2>검색 결과</h2></div>
-    <div class="d-flex justify-content-center">
-        <div class="col-3">메뉴</div>
-        <div class="col-3">상호</div>
-        <div class="col-3">별점</div>
-    </div>
-    <hr>
-    <% for(Map<String, Object> menulist : list){ %>
-    <%    if(menulist.get("menu").equals(menuInput)){ %>
-    <%        if("1".equals(pointFlag)){ %>
-    <%            if((Double)menulist.get("point") > 4.0){ %>
-    <div class="d-flex justify-content-center">
-        <div class="col-3"><%= menulist.get("menu")%></div>
-        <div class="col-3"><%= menulist.get("name")%></div>
-        <div class="col-3"><%= menulist.get("point")%></div>
-    </div>
-    <%            } %>
-    <%        } else { %>
-    <div class="d-flex justify-content-center">
-        <div class="col-3"><%= menulist.get("menu")%></div>
-        <div class="col-3"><%= menulist.get("name")%></div>
-        <div class="col-3"><%= menulist.get("point")%></div>
-    </div>
-    <%        } %>
-    <%    } %>
-    <% } %>
+    <h2 class="text-center">검색 결과</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>메뉴</th>
+                <th>상호</th>
+                <th>별점</th>
+            </tr>
+        </thead>
+        <tbody>
+        <%
+            for(Map<String, Object> menulist : list){
+                if(menulist.get("menu").equals(menuInput)){
+                    if(("1".equals(pointFlag)&&(Double)menulist.get("point") > 4.0)||(!"1".equals(pointFlag))){%>
+                    <!--if((!"1".equals(pointFlag) || (Double)menulist.get("point") > 4.0)
+                            ||는 앞이 참이면 뒤에 검사 하지 않는다 그러므로 || 뒤에 앞에 조건이 거짓이면 이라는 조건 쓸 필요 없음 -->
+            <tr>
+                <td><%= menulist.get("menu")%></td>
+                <td><%= menulist.get("name")%></td>
+                <td><%= menulist.get("point")%></td>
+            </tr>
+        <%            }
+                }
+            }
+        %>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

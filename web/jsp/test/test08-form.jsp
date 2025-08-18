@@ -65,27 +65,30 @@
 
     <div class="container">
         <div>
-            <h2>책 목록</h2>
+            <h2 class="text-center">책 목록</h2>
         </div>
-        <div class="d-flex">
-            <div class="col-1">id</div>
-            <div class="col-1">표지</div>
-            <div class="col-6">제목</div>
-        </div>
-        <hr>
-        <% for(Map<String, Object> book : list){%>
-        <form method="post" action="/web/jsp/test/test08.jsp">
-            <div class="d-flex">
-                <div class="col-1"><%= book.get("id") %></div>
-                <div class="col-1"><img src="<%= book.get("image")%>" width="50" height="75"></div>
-                <button type="submit" class="book-form-button">
-                    <div class="col-6"><%= book.get("title") %></div>
-                </button>
-            <input type="hidden" name="inputId" value="<%= book.get("id") %>" class="btn btn-link p-0 text-left">
-            </div>
-        </form>
-        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>표지</th>
+                    <th>제목</th>
+                </tr>
+            </thead>
+            <% for(Map<String, Object> book : list){%>
+                <tbody>
+                    <tr>
+                        <td><%= book.get("id") %></td>
+                        <td><img src="<%= book.get("image")%>" width="50" height="75"></td>
+                        <td>
+                            <a href="/web/jsp/test/test08.jsp?inputId=<%= book.get("id") %>">
+                                <h3 class="text-primary"><%= book.get("title") %></h3>
+                            </a>
+                        </td>
+                    </tr>
+            </tbody>
         <%}%>
+        </table>
     </div>
 </body>
 </html>

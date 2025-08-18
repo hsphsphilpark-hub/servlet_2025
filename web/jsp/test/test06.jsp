@@ -15,19 +15,23 @@
             });
         %>
         <div class="container">
-                <div><h2>장 목록</h2></div>
-                <div class="d-flex justify-content-center">
-                    <div class="col-5">번호</div>
-                    <div class="col-5">품목</div>
-                    <hr>
-                </div>
-                <% for(int i = 0; i<goodsList.size();i++){%>
-                <div class="d-flex justify-content-center">
-                    <div class="col-5"><%= i + 1 %></div>
-                    <div class="col-5"><%= goodsList.get(i) %></div>
-                </div>
-                <hr>
-                <% } %>
+                <div><h2 class="text-center">장 목록</h2></div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>품목</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(int i = 0; i < goodsList.size(); i++){%>
+                        <tr>
+                            <td class="col-5"><%= i + 1 %></td>
+                            <td class="col-5"><%= goodsList.get(i) %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
         </div>
 </body>
 </html>
