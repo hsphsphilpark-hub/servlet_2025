@@ -1,0 +1,15 @@
+#wrap {
+    height: 1200px;
+}
+header{
+    height:120px;
+}
+nav{
+    height:80px;
+}
+article{
+    height:250px;
+}
+main{
+    height:600px;
+}
