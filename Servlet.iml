@@ -20,5 +20,6 @@
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" name="jsp-api1" level="project" />
     <orderEntry type="library" name="servlet-api1" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-9.4.0" level="project" />
   </component>
 </module>
